@@ -1,0 +1,25 @@
+
+print(logo)
+print("Welcome to the bid auction!")
+bids_record = {}
+
+def bid_calc(bids_record):
+  highest_bid = 0
+  for bidder in bids_record:
+    bid_amount = bids_record[bidder]
+    if bid_amount > highest_bid:
+      highest_bid = bid_amount
+      winner_name = bidder
+  print(f"The winner of the bid is {winner_name} at ${highest_bid}.")
+      
+end_task = False
+while not end_task:
+  names = input("What is your name? \n")
+  bids = int(input("How much do you want to bid? \n "))
+  bids_record[names] = bids
+  continue_ = input("Is there anyone else that wants to bid? Type 'yes' or 'no'.\n").lower()
+  if continue_ == "no":
+    end_task = True
+    bid_calc(bids_record)   
+  elif continue_ == "yes":
+    clear()
